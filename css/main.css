@@ -399,3 +399,22 @@ footer.panel-footer {
     padding: 10px;
 }
 /*EO image picker*/
+
+
+.posts-list-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+.site-posts-list {
+    text-align: left;
+    display: inline-block;
+    max-width: 70%;
+    width: 100%;
+}
+.site-posts-list .site-post-item {
+    margin-bottom: 20px;
+}
+.site-post-item h2 span {
+    font-size: 0.7em;
+}

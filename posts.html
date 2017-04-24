@@ -1,0 +1,18 @@
+---
+layout: default
+title: The JavaScript JSON based Survey Library
+mainmenukey: posts
+canonicalUrl: /
+hasFooter: true
+---
+
+<div class="posts-list-container">
+  <section class="site-posts-list">
+    {% for post in site.posts %}
+      <article class="site-post-item">
+        <h2><a href="{{ post.url }}">{{ post.title }}</a>&nbsp&nbsp&nbsp<span>{{ post.date | date_to_long_string }}</span></h2>
+        {{ post.excerpt }}
+      </article>
+    {% endfor %}
+  </section>
+</div>
