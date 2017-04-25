@@ -1,0 +1,697 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>survey.js : Matrix with dynamic rows (type:'matrixdynamic')</title>
+        <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"/>
+        <link href="/css/style.css" type="text/css" rel="stylesheet" /> 
+        <link href="/css/main.css" type="text/css" rel="stylesheet" />
+        <link href="/css/custom-checkbox.css" type="text/css" rel="stylesheet" />
+        
+        
+        
+        
+        <script src="/js/knockout.js"></script>
+        <script src="https://surveyjs.azureedge.net/0.12.11/survey.ko.js"></script>
+        
+        <link href="/css/prism.css" type="text/css" rel="stylesheet" />
+        <script src="/js/prism.js"></script>
+        
+    </head>
+    <body class="white-bg">
+        
+<nav class="navbar navbar-default survey-gray survey-navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/index.html">Survey.JS</a>
+            <a class="version-link" role="button" href="https://github.com/surveyjs/surveyjs/releases" target="_blank">
+                the latest version 0.12.11
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class=''><a rel="home" href="/index.html" >Home</a></li>
+            <li class='active'><a rel="examples" href="/examples/jquery/">Examples</a></li>
+            <li ><a rel="builder" href="/builder/">Survey Editor</a></li>
+            <li><a href="http://surveyjs.io" target="_blank">SurveyJS Project</a></li>
+            <li><a href="http://github.com/surveyjs/surveyjs" target="_blank">Source</a></li>
+            <li><a href="https://github.com/surveyjs/surveyjs/issues" target="_blank">Issues</a></li>
+        </ul>
+    </div>
+</nav>
+        <div class="maincontent">
+        <div class="examples-wrapper">
+    
+
+    
+<nav class="navbar-default navbar-static-side examplesidebar" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+        
+            <li class="active">
+                <a href="#" onclick="doExpand('types')">
+                    <span>Question Types</span>
+                    <span id="imgtypes" class="glyphicon pull-right glyphicon-chevron-up" aria-hidden="true"></span>
+                </a>
+                <ul id="examplestypes" class="nav nav-second-level">
+                
+                    <li >
+                        <a href="questiontype-text.html">
+                            <span>Text</span>
+                            <div><small>Single questioin entry for text, e-mail, date and so on</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-radiogroup.html">
+                            <span>Radio group</span>
+                            <div><small>One choice question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-dropdown.html">
+                            <span>Dropdown</span>
+                            <div><small>One choice question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-dropdownrestfull.html">
+                            <span>Dropdown + restfull</span>
+                            <div><small>Get data from a restfull service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-checkbox.html">
+                            <span>Checkboxes</span>
+                            <div><small>Multiple choices question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-matrix.html">
+                            <span>Matrix</span>
+                            <div><small>Matrix question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-matrixdropdown.html">
+                            <span>Matrixdropdown</span>
+                            <div><small>Matrix question with multiple choices</small></div>
+                        </a>
+                    </li>
+                
+                    <li class="active">
+                        <a href="questiontype-matrixdynamic.html">
+                            <span>Matrixdynamic</span>
+                            <div><small>Matrix question with dynamic rows</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-multipletext.html">
+                            <span>Multiple Text</span>
+                            <div><small>Multiple text question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-rating.html">
+                            <span>Rating</span>
+                            <div><small>Rating question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-comment.html">
+                            <span>Comment</span>
+                            <div><small>Comment question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-html.html">
+                            <span>Html</span>
+                            <div><small>Html Elements</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-file.html">
+                            <span>File</span>
+                            <div><small>File Uploading</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-panel.html">
+                            <span>Panel</span>
+                            <div><small>Panel container</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('custom-widgets')">
+                    <span>Custom Widgets</span>
+                    <span id="imgcustom-widgets" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplescustom-widgets" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="custom-widget-select2-tagbox.html">
+                            <span>TagBox (Select2)</span>
+                            <div><small>Select2 TagBox</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-datepicker.html">
+                            <span>Datepicker</span>
+                            <div><small>JqueryUI DatePicker</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-custom-rating.html">
+                            <span>CustomRating</span>
+                            <div><small>Pure JS Rating</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-select2.html">
+                            <span>Select2</span>
+                            <div><small>Select2</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-icheck.html">
+                            <span>iCheck</span>
+                            <div><small>iCheck</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-barrating.html">
+                            <span>Barrating</span>
+                            <div><small>Antennaio Barrating</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-tagbox.html">
+                            <span>TagBox</span>
+                            <div><small>Devextreme TagBox</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-matrix-icheck.html">
+                            <span>ICheckMatrix</span>
+                            <div><small>Matrix with iCheck</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-sortablejs.html">
+                            <span>SortableJS</span>
+                            <div><small>SortableJS</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-image-picker.html">
+                            <span>ImagePicker</span>
+                            <div><small>Image Picker</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-nouislider.html">
+                            <span>noUiSlider</span>
+                            <div><small>JavaScript Range Slider</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('survey')">
+                    <span>Survey</span>
+                    <span id="imgsurvey" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplessurvey" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-oncomplete.html">
+                            <span>OnComplete handler</span>
+                            <div><small>Handle survey 'complete' event</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-cookie.html">
+                            <span>Use cookie</span>
+                            <div><small>Run survey one time in a browser</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-startwithnewline.html">
+                            <span>Questions in one line</span>
+                            <div><small>Show several questions in one line</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-customcss.html">
+                            <span>Custom css</span>
+                            <div><small>Use you own css classes</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-options.html">
+                            <span>Survey Options</span>
+                            <div><small>Use properties to set up your survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-data.html">
+                            <span>Work with data</span>
+                            <div><small>Get/set data from/to survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-displaymode.html">
+                            <span>Read-only/display mode</span>
+                            <div><small>View answers of other people</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-customnavigation.html">
+                            <span>Custom Navigation</span>
+                            <div><small>Use your own navigation</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-autonextpage.html">
+                            <span>Go next page automatically</span>
+                            <div><small>Go to the next page on answering questions automitically</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('triggers')">
+                    <span>Conditions and Triggers</span>
+                    <span id="imgtriggers" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplestriggers" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="condition-kids.html">
+                            <span>VisibleIf</span>
+                            <div><small>Create complex conditions to control question visibility</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-visible.html">
+                            <span>Visible Trigger</span>
+                            <div><small>Show/Hide question(s) on survey running</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-complete.html">
+                            <span>Complete Trigger</span>
+                            <div><small>Complete the survey from any page</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-setvalue.html">
+                            <span>SetValue Trigger</span>
+                            <div><small>On changing the question, change values of other questions</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('markdown')">
+                    <span>Markdown and Text Processing</span>
+                    <span id="imgmarkdown" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesmarkdown" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-processtext.html">
+                            <span>Pre-process title/html</span>
+                            <div><small>Use a simple syntax to customize the text</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-markdown-matrix.html">
+                            <span>Matrix columns markdown</span>
+                            <div><small>Render column title in several lines</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-markdown-radiogroup.html">
+                            <span>Radiogroup markdown</span>
+                            <div><small>Render images in title and question elements</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('localization')">
+                    <span>Localization</span>
+                    <span id="imglocalization" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="exampleslocalization" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-localization.html">
+                            <span>Localization</span>
+                            <div><small>Localize your survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-multilanguages.html">
+                            <span>Multi Languages</span>
+                            <div><small>Create a survey with multi languages support</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('validation')">
+                    <span>Validation</span>
+                    <span id="imgvalidation" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesvalidation" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="validators-standard.html">
+                            <span>Standard validators</span>
+                            <div><small>Example of using standard validators</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-server.html">
+                            <span>Validate on Server</span>
+                            <div><small>Validate answers of the current page on server</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-custom.html">
+                            <span>Create custom validators</span>
+                            <div><small>Example of creating and using a custom validator</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-event.html">
+                            <span>Validate on event</span>
+                            <div><small>Example of using OnValidatateQuestion event</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('dxservice')">
+                    <span>Using dxService</span>
+                    <span id="imgdxservice" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesdxservice" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="service-load.html">
+                            <span>Load Survey</span>
+                            <div><small>Load survey json from the service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-send.html">
+                            <span>Save Survey Result</span>
+                            <div><small>Save survey result to the service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-result.html">
+                            <span>Get Survey Result</span>
+                            <div><small>Get Survey Result after sending results</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-oneperuser.html">
+                            <span>Run survey one time</span>
+                            <div><small>Use your user id to run the survey one time and optionally store result on every page</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('real')">
+                    <span>Real Examples</span>
+                    <span id="imgreal" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesreal" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="real-productfeedback.html">
+                            <span>Product Feedback</span>
+                            <div><small>Three pages survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="real-devexpresswinformsskins.html">
+                            <span>DevExpress Winforms Skins</span>
+                            <div><small>The real survey ran in DevExpress</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+        </ul>        
+    </div>
+</nav>
+
+<script type="text/javascript">
+    function doExpand(categoryId) {
+        var ulCategory = document.getElementById("examples" + categoryId);
+        if(!ulCategory) return;
+        var display = ulCategory.style.display;
+        ulCategory.style.display = display == "none" ? "" : "none";
+        var imgCategory = document.getElementById("img" + categoryId);
+        if(!imgCategory) return;
+        imgCategory.className = display == "none" ? "glyphicon pull-right glyphicon-chevron-up" : "glyphicon pull-right glyphicon-chevron-down";
+    }
+</script>
+    <script>
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.Survey.cssType = "bootstrap";
+    </script>
+    <div class="examplecontent wrapper wrapper-content">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="contenttitle">Matrix with dynamic rows (type:'matrixdynamic')</h3>
+            
+            
+                
+                    <div id="surveyContainer" class="survey-container contentcontainer  codecontainer">
+                        <div id="surveyElement">
+                            
+                        </div>
+                    </div>
+                
+                <div id="survey_oncomplete" class="contentcontainer codecontainer" style="display:none">
+                    <div id="survey_result"></div>
+                    <input id="btnreRun" type="button" onclick="
+                                    document.getElementById('surveyContainer').style.display = '';
+                                    document.getElementById('survey_oncomplete').style.display = 'none';
+                                    reRunSurvey();"
+                           value="Re-run survey"></input>
+                </div>
+            
+
+            <div class="row source-code-container">
+                
+                    <ul class="nav nav-tabs" style="margin-top:10px;margin-bottom:10px">
+    
+    
+    <li role="presentation"><a href="/examples/angular/questiontype-matrixdynamic.html">Angular2</a></li>
+    <li role="presentation"><a href="/examples/jquery/questiontype-matrixdynamic.html">jQuery</a></li>
+    <li role="presentation" class="active"><a>Knockoutjs</a></li>
+    <li role="presentation"><a href="/examples/react/questiontype-matrixdynamic.html">Reactjs</a></li>
+    <li role="presentation"><a href="/examples/vue/questiontype-matrixdynamic.html">Vue</a></li>
+    
+</ul>
+
+                
+                
+    
+
+    
+
+
+<script type="text/javascript">
+
+/*<![CDATA[*/
+
+
+
+
+var survey = new Survey.Model({questions: [
+{ type: "matrixdynamic", name: "teachersRate", title: "Please rate your teachers", addRowText: "Add Subject",
+    horizontalScroll: true, columnMinWidth: "120px",  columnColCount: 1, cellType: "radiogroup",
+    choices: [{value: 1 , text: "Yes"}, {value: 0, text: "Sometimes"}, {value: -1, text: "No"}],
+    columns: [{ name: "subject", cellType:"dropdown", title: "Select a subject", isRequired: true, minWidth: "300px", choices: ["English: American Literature", "English: British and World Literature", "Math: Consumer Math", "Math: Practical Math", "Math: Developmental Algebra", "Math: Continuing Algebra", "Math: Pre-Algebra", "Math: Algebra", "Math: Geometry", "Math: Integrated Mathematics", "Science: Physical Science", "Science: Earth Science", "Science: Biology", "Science: Chemistry", "History: World History", "History: Modern World Studies", "History: U.S. History", "History: Modern U.S. History", "Social Sciences: U.S. Government and Politics", "Social Sciences: U.S. and Global Economics", "World Languages: Spanish", "World Languages: French", "World Languages: German", "World Languages: Latin", "World Languages: Chinese", "World Languages: Japanese"]}, 
+        { name: "explains", title: "Clearly explains the objectives"}, 
+        { name: "interesting", title: "Makes class interesting" },
+        {name: "effective", title: "Uses class time effectively" },
+        {name: "knowledge", title: "Knows the subject matter" },
+        {name: "recognition", title: "Recognizes and acknowledges effort" },
+        {name: "inform", title: "Keeps me informed of my progress" },
+        {name: "opinion", title: "Encourages and accepts different opinions" },
+        {name: "respect", title: "Has the respect of the student" },
+        {name: "cooperation", title: "Encourages cooperation and participation" },
+        {name: "parents", title: "Communicates with my parents" },
+        {name: "selfthinking", title: "Encourages me to think for myself"},
+        {name:"frusturation", cellType: "comment", title: "Is there anything about this class that frustrates you?", minWidth: "250px"},
+        {name:"likeTheBest", cellType: "comment", title: "What do you like best about this class and/or teacher?", minWidth: "250px"}, 
+        {name:"improvements", cellType: "comment", title: "What do you wish this teacher would do differently that would improve this class?", minWidth: "250px"} ],
+    rowCount: 2}
+]}
+
+);
+
+survey.render("surveyElement");
+
+
+
+
+/*]]>*/
+</script>
+
+
+
+
+
+
+<div>Source code: Survey setup</div>
+<pre><code class="language-javascript">Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+Survey.Survey.cssType = "bootstrap";
+var survey = new Survey.Model({questions: [
+{ type: &quot;matrixdynamic&quot;, name: &quot;teachersRate&quot;, title: &quot;Please rate your teachers&quot;, addRowText: &quot;Add Subject&quot;,
+    horizontalScroll: true, columnMinWidth: &quot;120px&quot;,  columnColCount: 1, cellType: &quot;radiogroup&quot;,
+    choices: [{value: 1 , text: &quot;Yes&quot;}, {value: 0, text: &quot;Sometimes&quot;}, {value: -1, text: &quot;No&quot;}],
+    columns: [{ name: &quot;subject&quot;, cellType:&quot;dropdown&quot;, title: &quot;Select a subject&quot;, isRequired: true, minWidth: &quot;300px&quot;, choices: [&quot;English: American Literature&quot;, &quot;English: British and World Literature&quot;, &quot;Math: Consumer Math&quot;, &quot;Math: Practical Math&quot;, &quot;Math: Developmental Algebra&quot;, &quot;Math: Continuing Algebra&quot;, &quot;Math: Pre-Algebra&quot;, &quot;Math: Algebra&quot;, &quot;Math: Geometry&quot;, &quot;Math: Integrated Mathematics&quot;, &quot;Science: Physical Science&quot;, &quot;Science: Earth Science&quot;, &quot;Science: Biology&quot;, &quot;Science: Chemistry&quot;, &quot;History: World History&quot;, &quot;History: Modern World Studies&quot;, &quot;History: U.S. History&quot;, &quot;History: Modern U.S. History&quot;, &quot;Social Sciences: U.S. Government and Politics&quot;, &quot;Social Sciences: U.S. and Global Economics&quot;, &quot;World Languages: Spanish&quot;, &quot;World Languages: French&quot;, &quot;World Languages: German&quot;, &quot;World Languages: Latin&quot;, &quot;World Languages: Chinese&quot;, &quot;World Languages: Japanese&quot;]}, 
+        { name: &quot;explains&quot;, title: &quot;Clearly explains the objectives&quot;}, 
+        { name: &quot;interesting&quot;, title: &quot;Makes class interesting&quot; },
+        {name: &quot;effective&quot;, title: &quot;Uses class time effectively&quot; },
+        {name: &quot;knowledge&quot;, title: &quot;Knows the subject matter&quot; },
+        {name: &quot;recognition&quot;, title: &quot;Recognizes and acknowledges effort&quot; },
+        {name: &quot;inform&quot;, title: &quot;Keeps me informed of my progress&quot; },
+        {name: &quot;opinion&quot;, title: &quot;Encourages and accepts different opinions&quot; },
+        {name: &quot;respect&quot;, title: &quot;Has the respect of the student&quot; },
+        {name: &quot;cooperation&quot;, title: &quot;Encourages cooperation and participation&quot; },
+        {name: &quot;parents&quot;, title: &quot;Communicates with my parents&quot; },
+        {name: &quot;selfthinking&quot;, title: &quot;Encourages me to think for myself&quot;},
+        {name:&quot;frusturation&quot;, cellType: &quot;comment&quot;, title: &quot;Is there anything about this class that frustrates you?&quot;, minWidth: &quot;250px&quot;},
+        {name:&quot;likeTheBest&quot;, cellType: &quot;comment&quot;, title: &quot;What do you like best about this class and/or teacher?&quot;, minWidth: &quot;250px&quot;}, 
+        {name:&quot;improvements&quot;, cellType: &quot;comment&quot;, title: &quot;What do you wish this teacher would do differently that would improve this class?&quot;, minWidth: &quot;250px&quot;} ],
+    rowCount: 2}
+]}
+
+);
+
+survey.render(&quot;surveyElement&quot;);
+
+</code></pre>
+    
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+    <script>
+    function reRunSurvey() {
+        
+        survey.clear();
+        
+        survey.render('survey');
+    }
+    
+    function renderSurvey() {
+        if(typeof survey == 'undefined') return;
+        survey.onComplete.add(function (s) {
+            var result = "\nThe results are:\n" + JSON.stringify(survey.data);
+            document.getElementById('survey_result').innerHTML = result;
+            document.getElementById('survey_oncomplete').style.display = '';
+            
+        });
+        survey.render("surveyElement");
+    }
+
+    renderSurvey();
+    
+    </script>
+</div>
+
+        </div>
+        
+        <script type="text/javascript">               
+            // Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-74958675-1']);
+            _gaq.push(['_trackPageview']);	
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();             
+        </script>        
+    </body>
+</html>

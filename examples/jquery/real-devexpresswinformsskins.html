@@ -1,0 +1,832 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>survey.js : DevExpress WinForms Look & Feel Technology</title>
+        <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"/>
+        <link href="/css/style.css" type="text/css" rel="stylesheet" /> 
+        <link href="/css/main.css" type="text/css" rel="stylesheet" />
+        <link href="/css/custom-checkbox.css" type="text/css" rel="stylesheet" />
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>        
+        
+        
+        
+        
+        <script src="https://surveyjs.azureedge.net/0.12.11/survey.jquery.js"></script>
+        
+        <link href="/css/prism.css" type="text/css" rel="stylesheet" />
+        <script src="/js/prism.js"></script>
+        
+    </head>
+    <body class="white-bg">
+        
+<nav class="navbar navbar-default survey-gray survey-navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/index.html">Survey.JS</a>
+            <a class="version-link" role="button" href="https://github.com/surveyjs/surveyjs/releases" target="_blank">
+                the latest version 0.12.11
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class=''><a rel="home" href="/index.html" >Home</a></li>
+            <li class='active'><a rel="examples" href="/examples/jquery/">Examples</a></li>
+            <li ><a rel="builder" href="/builder/">Survey Editor</a></li>
+            <li><a href="http://surveyjs.io" target="_blank">SurveyJS Project</a></li>
+            <li><a href="http://github.com/surveyjs/surveyjs" target="_blank">Source</a></li>
+            <li><a href="https://github.com/surveyjs/surveyjs/issues" target="_blank">Issues</a></li>
+        </ul>
+    </div>
+</nav>
+        <div class="maincontent">
+        <div class="examples-wrapper">
+    
+
+    
+<nav class="navbar-default navbar-static-side examplesidebar" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+        
+            <li >
+                <a href="#" onclick="doExpand('types')">
+                    <span>Question Types</span>
+                    <span id="imgtypes" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplestypes" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="questiontype-text.html">
+                            <span>Text</span>
+                            <div><small>Single questioin entry for text, e-mail, date and so on</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-radiogroup.html">
+                            <span>Radio group</span>
+                            <div><small>One choice question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-dropdown.html">
+                            <span>Dropdown</span>
+                            <div><small>One choice question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-dropdownrestfull.html">
+                            <span>Dropdown + restfull</span>
+                            <div><small>Get data from a restfull service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-checkbox.html">
+                            <span>Checkboxes</span>
+                            <div><small>Multiple choices question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-matrix.html">
+                            <span>Matrix</span>
+                            <div><small>Matrix question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-matrixdropdown.html">
+                            <span>Matrixdropdown</span>
+                            <div><small>Matrix question with multiple choices</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-matrixdynamic.html">
+                            <span>Matrixdynamic</span>
+                            <div><small>Matrix question with dynamic rows</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-multipletext.html">
+                            <span>Multiple Text</span>
+                            <div><small>Multiple text question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-rating.html">
+                            <span>Rating</span>
+                            <div><small>Rating question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-comment.html">
+                            <span>Comment</span>
+                            <div><small>Comment question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-html.html">
+                            <span>Html</span>
+                            <div><small>Html Elements</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-file.html">
+                            <span>File</span>
+                            <div><small>File Uploading</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-panel.html">
+                            <span>Panel</span>
+                            <div><small>Panel container</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('custom-widgets')">
+                    <span>Custom Widgets</span>
+                    <span id="imgcustom-widgets" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplescustom-widgets" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="custom-widget-select2-tagbox.html">
+                            <span>TagBox (Select2)</span>
+                            <div><small>Select2 TagBox</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-datepicker.html">
+                            <span>Datepicker</span>
+                            <div><small>JqueryUI DatePicker</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-custom-rating.html">
+                            <span>CustomRating</span>
+                            <div><small>Pure JS Rating</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-select2.html">
+                            <span>Select2</span>
+                            <div><small>Select2</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-icheck.html">
+                            <span>iCheck</span>
+                            <div><small>iCheck</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-barrating.html">
+                            <span>Barrating</span>
+                            <div><small>Antennaio Barrating</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-tagbox.html">
+                            <span>TagBox</span>
+                            <div><small>Devextreme TagBox</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-matrix-icheck.html">
+                            <span>ICheckMatrix</span>
+                            <div><small>Matrix with iCheck</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-sortablejs.html">
+                            <span>SortableJS</span>
+                            <div><small>SortableJS</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-image-picker.html">
+                            <span>ImagePicker</span>
+                            <div><small>Image Picker</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-nouislider.html">
+                            <span>noUiSlider</span>
+                            <div><small>JavaScript Range Slider</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('survey')">
+                    <span>Survey</span>
+                    <span id="imgsurvey" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplessurvey" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-oncomplete.html">
+                            <span>OnComplete handler</span>
+                            <div><small>Handle survey 'complete' event</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-cookie.html">
+                            <span>Use cookie</span>
+                            <div><small>Run survey one time in a browser</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-startwithnewline.html">
+                            <span>Questions in one line</span>
+                            <div><small>Show several questions in one line</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-customcss.html">
+                            <span>Custom css</span>
+                            <div><small>Use you own css classes</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-options.html">
+                            <span>Survey Options</span>
+                            <div><small>Use properties to set up your survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-data.html">
+                            <span>Work with data</span>
+                            <div><small>Get/set data from/to survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-displaymode.html">
+                            <span>Read-only/display mode</span>
+                            <div><small>View answers of other people</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-customnavigation.html">
+                            <span>Custom Navigation</span>
+                            <div><small>Use your own navigation</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-autonextpage.html">
+                            <span>Go next page automatically</span>
+                            <div><small>Go to the next page on answering questions automitically</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('triggers')">
+                    <span>Conditions and Triggers</span>
+                    <span id="imgtriggers" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplestriggers" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="condition-kids.html">
+                            <span>VisibleIf</span>
+                            <div><small>Create complex conditions to control question visibility</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-visible.html">
+                            <span>Visible Trigger</span>
+                            <div><small>Show/Hide question(s) on survey running</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-complete.html">
+                            <span>Complete Trigger</span>
+                            <div><small>Complete the survey from any page</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-setvalue.html">
+                            <span>SetValue Trigger</span>
+                            <div><small>On changing the question, change values of other questions</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('markdown')">
+                    <span>Markdown and Text Processing</span>
+                    <span id="imgmarkdown" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesmarkdown" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-processtext.html">
+                            <span>Pre-process title/html</span>
+                            <div><small>Use a simple syntax to customize the text</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-markdown-matrix.html">
+                            <span>Matrix columns markdown</span>
+                            <div><small>Render column title in several lines</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-markdown-radiogroup.html">
+                            <span>Radiogroup markdown</span>
+                            <div><small>Render images in title and question elements</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('localization')">
+                    <span>Localization</span>
+                    <span id="imglocalization" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="exampleslocalization" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-localization.html">
+                            <span>Localization</span>
+                            <div><small>Localize your survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-multilanguages.html">
+                            <span>Multi Languages</span>
+                            <div><small>Create a survey with multi languages support</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('validation')">
+                    <span>Validation</span>
+                    <span id="imgvalidation" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesvalidation" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="validators-standard.html">
+                            <span>Standard validators</span>
+                            <div><small>Example of using standard validators</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-server.html">
+                            <span>Validate on Server</span>
+                            <div><small>Validate answers of the current page on server</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-custom.html">
+                            <span>Create custom validators</span>
+                            <div><small>Example of creating and using a custom validator</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-event.html">
+                            <span>Validate on event</span>
+                            <div><small>Example of using OnValidatateQuestion event</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('dxservice')">
+                    <span>Using dxService</span>
+                    <span id="imgdxservice" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesdxservice" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="service-load.html">
+                            <span>Load Survey</span>
+                            <div><small>Load survey json from the service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-send.html">
+                            <span>Save Survey Result</span>
+                            <div><small>Save survey result to the service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-result.html">
+                            <span>Get Survey Result</span>
+                            <div><small>Get Survey Result after sending results</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-oneperuser.html">
+                            <span>Run survey one time</span>
+                            <div><small>Use your user id to run the survey one time and optionally store result on every page</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li class="active">
+                <a href="#" onclick="doExpand('real')">
+                    <span>Real Examples</span>
+                    <span id="imgreal" class="glyphicon pull-right glyphicon-chevron-up" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesreal" class="nav nav-second-level">
+                
+                    <li >
+                        <a href="real-productfeedback.html">
+                            <span>Product Feedback</span>
+                            <div><small>Three pages survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li class="active">
+                        <a href="real-devexpresswinformsskins.html">
+                            <span>DevExpress Winforms Skins</span>
+                            <div><small>The real survey ran in DevExpress</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+        </ul>        
+    </div>
+</nav>
+
+<script type="text/javascript">
+    function doExpand(categoryId) {
+        var ulCategory = document.getElementById("examples" + categoryId);
+        if(!ulCategory) return;
+        var display = ulCategory.style.display;
+        ulCategory.style.display = display == "none" ? "" : "none";
+        var imgCategory = document.getElementById("img" + categoryId);
+        if(!imgCategory) return;
+        imgCategory.className = display == "none" ? "glyphicon pull-right glyphicon-chevron-up" : "glyphicon pull-right glyphicon-chevron-down";
+    }
+</script>
+    <script>
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.Survey.cssType = "bootstrap";
+    </script>
+    <div class="examplecontent wrapper wrapper-content">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="contenttitle">DevExpress WinForms Look & Feel Technology</h3>
+            
+            
+                
+                    <div id="surveyContainer" class="survey-container contentcontainer  codecontainer">
+                        <div id="surveyElement">
+                            
+                        </div>
+                    </div>
+                
+                <div id="survey_oncomplete" class="contentcontainer codecontainer" style="display:none">
+                    <div id="survey_result"></div>
+                    <input id="btnreRun" type="button" onclick="
+                                    document.getElementById('surveyContainer').style.display = '';
+                                    document.getElementById('survey_oncomplete').style.display = 'none';
+                                    reRunSurvey();"
+                           value="Re-run survey"></input>
+                </div>
+            
+
+            <div class="row source-code-container">
+                
+                    <ul class="nav nav-tabs" style="margin-top:10px;margin-bottom:10px">
+    
+    
+    <li role="presentation"><a href="/examples/angular/real-devexpresswinformsskins.html">Angular2</a></li>
+    <li role="presentation" class="active"><a>jQuery</a></li>
+    <li role="presentation"><a href="/examples/knockout/real-devexpresswinformsskins.html">Knockoutjs</a></li>
+    <li role="presentation"><a href="/examples/react/real-devexpresswinformsskins.html">Reactjs</a></li>
+    <li role="presentation"><a href="/examples/vue/real-devexpresswinformsskins.html">Vue</a></li>
+    
+</ul>
+
+                
+                
+    
+
+    
+
+
+<script type="text/javascript">
+
+/*<![CDATA[*/
+
+
+
+
+var survey = new Survey.Model({
+    pages: [
+        {   title: "Skin/theme choices in your WinForms applications",
+            questions: [
+                {
+                    type: "radiogroup", name: "skinNumber", title: "How many skin/theme choices do you currently offer within your WinForms applications?",
+                    isRequired: true, choices: ["many|More than one"],
+                    hasOther: true, otherText: "One (please specify its name)", otherErrorText: "Please enter a name of the skin/theme you use in your applications."
+                }
+            ]
+        },
+        {
+            title: "Do you ship all DevExpress skins with your applications?",
+            questions: [
+                {
+                    type: "radiogroup", name: "skinShips", title: "If you include more than one skin/theme within your application, please specify whether you ship all DevExpress WinForms skins/themes or whether you ship a select number.",
+                    isRequired: true, choices: ["all|I ship all skins", "selected|I ship only a select number"], visibleIf: "{skinNumber} = 'many'"
+                }
+            ]
+        },
+        {
+            title: "Skin/Theme Value for End-Users",
+            questions: [
+                {
+                    type: "matrix", name: "skinValue", title: " If you ship all DevExpress skins/themes, please rank the importance and/or business value of the skins below to your end-users.",
+                    visibleIf: "{skinNumber} = 'many' and {skinShips} = 'all'",
+                    columns: ["high|High value for end-users", "donotknow|I don't know", "low|Low value for end-users"],
+                    rows: ["msOffice latest|Skins Emulating the Latest Versions of MS Office and Windows",
+                            "msOffice previous|Skins Emulating Previous Versions of MS Office and Windows",
+                            "macOS|Skins Emulating Mac OS",
+                            "vs.net|Skins Emulating Visual Studio",
+                            "adobe|Skins Emulating Well-Known Apps Like Adobe Lightroom",
+                            "holiday|Holiday / Seasonal Themes",
+                            "unique|Other Unique Themes",
+                            "devExpress|Other Unique Themes Designed by DevExpress"]
+                }
+            ]
+        },
+        {
+            title: "Skins/Themes You Include in Your Application",
+            questions: [
+                {
+                    type: "checkbox", name: "skinSelected", title: "If you ship only a select number of DevExpress skins/themes, please specify the skins/themes you include in your application.",
+                    visibleIf: "{skinNumber} = 'many' and {skinShips} != 'all'",
+                    choices: ["msOffice latest|Skins Emulating the Latest Versions of MS Office and Windows",
+                            "msOffice previous|Skins Emulating Previous Versions of MS Office and Windows",
+                            "macOS|Skins Emulating Mac OS",
+                            "vs.net|Skins Emulating Visual Studio",
+                            "adobe|Skins Emulating Well-Known Apps Like Adobe Lightroom",
+                            "holiday|Holiday / Seasonal Themes",
+                            "unique|Other Unique Themes",
+                            "devExpress|Other Unique Themes Designed by DevExpress"]
+        }
+            ]
+        },
+        {
+            title: "Personal Favorite",
+            questions: [
+                {
+                    type: "text", name: "skinFavorite", title: "Do you have a personal favorite skin/theme?", visibleIf: "{skinNumber} = 'many'"
+                }
+            ]
+        },
+        {
+            title: "Color Variety versus Shape & Style Variety",
+            questions: [
+                {
+                    type: "radiogroup", name: "userImportance", title: "What is more important for your end-users?", 
+                    visibleIf: "{skinNumber} = 'many'",
+                    choices: ["color|Color variety", "elements|Elements, shapes and styles"]
+                }
+            ]
+        },
+        {
+            title: "Do you modify skins?",
+            questions: [
+                {
+                    type: "radiogroup", name: "skinModify", title: "Do you modify DevExpress WinForms skins/themes used within your application to address specific business requirements?",
+                    choices: ["Yes", "No"]
+                }
+            ]
+        },
+        {
+            title: "Reasons to Modify Skins",
+            questions: [
+                {
+                    type: "comment", name: "skinModifyReason", title: "If you modify DevExpress skins/themes before shipping your application, please briefly explain the reasons for doing so (such as specific branding requirements)."
+                }
+            ]
+        }
+    ]
+});
+
+$("#surveyElement").Survey({model:survey});
+
+
+
+window.survey = survey;
+survey.onComplete.add(function (s) { 
+    var result = "\nThe results are:\n" + JSON.stringify(survey.data);
+    document.getElementById('survey_result').innerHTML = result; 
+    document.getElementById('survey_oncomplete').style.display = '';
+});
+
+
+/*]]>*/
+</script>
+
+
+
+
+
+
+<div>Source code: Survey setup</div>
+<pre><code class="language-javascript">Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+Survey.Survey.cssType = "bootstrap";
+var survey = new Survey.Model({
+    pages: [
+        {   title: &quot;Skin/theme choices in your WinForms applications&quot;,
+            questions: [
+                {
+                    type: &quot;radiogroup&quot;, name: &quot;skinNumber&quot;, title: &quot;How many skin/theme choices do you currently offer within your WinForms applications?&quot;,
+                    isRequired: true, choices: [&quot;many|More than one&quot;],
+                    hasOther: true, otherText: &quot;One (please specify its name)&quot;, otherErrorText: &quot;Please enter a name of the skin/theme you use in your applications.&quot;
+                }
+            ]
+        },
+        {
+            title: &quot;Do you ship all DevExpress skins with your applications?&quot;,
+            questions: [
+                {
+                    type: &quot;radiogroup&quot;, name: &quot;skinShips&quot;, title: &quot;If you include more than one skin/theme within your application, please specify whether you ship all DevExpress WinForms skins/themes or whether you ship a select number.&quot;,
+                    isRequired: true, choices: [&quot;all|I ship all skins&quot;, &quot;selected|I ship only a select number&quot;], visibleIf: &quot;{skinNumber} = &#39;many&#39;&quot;
+                }
+            ]
+        },
+        {
+            title: &quot;Skin/Theme Value for End-Users&quot;,
+            questions: [
+                {
+                    type: &quot;matrix&quot;, name: &quot;skinValue&quot;, title: &quot; If you ship all DevExpress skins/themes, please rank the importance and/or business value of the skins below to your end-users.&quot;,
+                    visibleIf: &quot;{skinNumber} = &#39;many&#39; and {skinShips} = &#39;all&#39;&quot;,
+                    columns: [&quot;high|High value for end-users&quot;, &quot;donotknow|I don&#39;t know&quot;, &quot;low|Low value for end-users&quot;],
+                    rows: [&quot;msOffice latest|Skins Emulating the Latest Versions of MS Office and Windows&quot;,
+                            &quot;msOffice previous|Skins Emulating Previous Versions of MS Office and Windows&quot;,
+                            &quot;macOS|Skins Emulating Mac OS&quot;,
+                            &quot;vs.net|Skins Emulating Visual Studio&quot;,
+                            &quot;adobe|Skins Emulating Well-Known Apps Like Adobe Lightroom&quot;,
+                            &quot;holiday|Holiday / Seasonal Themes&quot;,
+                            &quot;unique|Other Unique Themes&quot;,
+                            &quot;devExpress|Other Unique Themes Designed by DevExpress&quot;]
+                }
+            ]
+        },
+        {
+            title: &quot;Skins/Themes You Include in Your Application&quot;,
+            questions: [
+                {
+                    type: &quot;checkbox&quot;, name: &quot;skinSelected&quot;, title: &quot;If you ship only a select number of DevExpress skins/themes, please specify the skins/themes you include in your application.&quot;,
+                    visibleIf: &quot;{skinNumber} = &#39;many&#39; and {skinShips} != &#39;all&#39;&quot;,
+                    choices: [&quot;msOffice latest|Skins Emulating the Latest Versions of MS Office and Windows&quot;,
+                            &quot;msOffice previous|Skins Emulating Previous Versions of MS Office and Windows&quot;,
+                            &quot;macOS|Skins Emulating Mac OS&quot;,
+                            &quot;vs.net|Skins Emulating Visual Studio&quot;,
+                            &quot;adobe|Skins Emulating Well-Known Apps Like Adobe Lightroom&quot;,
+                            &quot;holiday|Holiday / Seasonal Themes&quot;,
+                            &quot;unique|Other Unique Themes&quot;,
+                            &quot;devExpress|Other Unique Themes Designed by DevExpress&quot;]
+        }
+            ]
+        },
+        {
+            title: &quot;Personal Favorite&quot;,
+            questions: [
+                {
+                    type: &quot;text&quot;, name: &quot;skinFavorite&quot;, title: &quot;Do you have a personal favorite skin/theme?&quot;, visibleIf: &quot;{skinNumber} = &#39;many&#39;&quot;
+                }
+            ]
+        },
+        {
+            title: &quot;Color Variety versus Shape &amp; Style Variety&quot;,
+            questions: [
+                {
+                    type: &quot;radiogroup&quot;, name: &quot;userImportance&quot;, title: &quot;What is more important for your end-users?&quot;, 
+                    visibleIf: &quot;{skinNumber} = &#39;many&#39;&quot;,
+                    choices: [&quot;color|Color variety&quot;, &quot;elements|Elements, shapes and styles&quot;]
+                }
+            ]
+        },
+        {
+            title: &quot;Do you modify skins?&quot;,
+            questions: [
+                {
+                    type: &quot;radiogroup&quot;, name: &quot;skinModify&quot;, title: &quot;Do you modify DevExpress WinForms skins/themes used within your application to address specific business requirements?&quot;,
+                    choices: [&quot;Yes&quot;, &quot;No&quot;]
+                }
+            ]
+        },
+        {
+            title: &quot;Reasons to Modify Skins&quot;,
+            questions: [
+                {
+                    type: &quot;comment&quot;, name: &quot;skinModifyReason&quot;, title: &quot;If you modify DevExpress skins/themes before shipping your application, please briefly explain the reasons for doing so (such as specific branding requirements).&quot;
+                }
+            ]
+        }
+    ]
+});
+
+$(&quot;#surveyElement&quot;).Survey({model:survey});
+
+</code></pre>
+    
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+    <script>
+    function reRunSurvey() {
+        
+        survey.clear();
+        
+        survey.render('survey');
+    }
+    
+        
+    
+    </script>
+</div>
+
+        </div>
+        
+        <script type="text/javascript">               
+            // Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-74958675-1']);
+            _gaq.push(['_trackPageview']);	
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();             
+        </script>        
+    </body>
+</html>

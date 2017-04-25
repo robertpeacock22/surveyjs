@@ -1,0 +1,1136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>survey.js : Medical Service Feedback</title>
+        <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"/>
+        <link href="/css/style.css" type="text/css" rel="stylesheet" /> 
+        <link href="/css/main.css" type="text/css" rel="stylesheet" />
+        <link href="/css/custom-checkbox.css" type="text/css" rel="stylesheet" />
+        
+        
+        
+        
+        <!-- The stuff Angular 2 needs -->
+        <script src="/js/angular2/zone.min.js"></script>
+        <script src="/js/angular2/shim.min.js"></script>
+        <script src="/js/angular2/Reflect.js"></script>
+        <script src="/js/angular2/Rx.umd.js"></script>
+        <script src="/js/angular2/angular.core.umd.js"></script>
+        <script src="/js/angular2/angular.common.umd.js"></script>
+        <script src="/js/angular2/angular.compiler.umd.js"></script>
+        <script src="/js/angular2/angular.platform-browser.umd.js"></script>
+        <script src="/js/angular2/angular.platform-browser-dynamic.umd.js"></script>
+
+        <script src="https://surveyjs.azureedge.net/0.12.11/survey.angular.js"></script>
+        
+        <link href="/css/prism.css" type="text/css" rel="stylesheet" />
+        <script src="/js/prism.js"></script>
+        
+    </head>
+    <body class="white-bg">
+        
+<nav class="navbar navbar-default survey-gray survey-navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/index.html">Survey.JS</a>
+            <a class="version-link" role="button" href="https://github.com/surveyjs/surveyjs/releases" target="_blank">
+                the latest version 0.12.11
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class=''><a rel="home" href="/index.html" >Home</a></li>
+            <li class='active'><a rel="examples" href="/examples/jquery/">Examples</a></li>
+            <li ><a rel="builder" href="/builder/">Survey Editor</a></li>
+            <li><a href="http://surveyjs.io" target="_blank">SurveyJS Project</a></li>
+            <li><a href="http://github.com/surveyjs/surveyjs" target="_blank">Source</a></li>
+            <li><a href="https://github.com/surveyjs/surveyjs/issues" target="_blank">Issues</a></li>
+        </ul>
+    </div>
+</nav>
+        <div class="maincontent">
+        <div class="examples-wrapper">
+    
+
+    
+<nav class="navbar-default navbar-static-side examplesidebar" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+        
+            <li >
+                <a href="#" onclick="doExpand('types')">
+                    <span>Question Types</span>
+                    <span id="imgtypes" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplestypes" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="questiontype-text.html">
+                            <span>Text</span>
+                            <div><small>Single questioin entry for text, e-mail, date and so on</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-radiogroup.html">
+                            <span>Radio group</span>
+                            <div><small>One choice question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-dropdown.html">
+                            <span>Dropdown</span>
+                            <div><small>One choice question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-dropdownrestfull.html">
+                            <span>Dropdown + restfull</span>
+                            <div><small>Get data from a restfull service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-checkbox.html">
+                            <span>Checkboxes</span>
+                            <div><small>Multiple choices question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-matrix.html">
+                            <span>Matrix</span>
+                            <div><small>Matrix question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-matrixdropdown.html">
+                            <span>Matrixdropdown</span>
+                            <div><small>Matrix question with multiple choices</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-matrixdynamic.html">
+                            <span>Matrixdynamic</span>
+                            <div><small>Matrix question with dynamic rows</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-multipletext.html">
+                            <span>Multiple Text</span>
+                            <div><small>Multiple text question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-rating.html">
+                            <span>Rating</span>
+                            <div><small>Rating question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-comment.html">
+                            <span>Comment</span>
+                            <div><small>Comment question</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-html.html">
+                            <span>Html</span>
+                            <div><small>Html Elements</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-file.html">
+                            <span>File</span>
+                            <div><small>File Uploading</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="questiontype-panel.html">
+                            <span>Panel</span>
+                            <div><small>Panel container</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('custom-widgets')">
+                    <span>Custom Widgets</span>
+                    <span id="imgcustom-widgets" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplescustom-widgets" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="custom-widget-select2-tagbox.html">
+                            <span>TagBox (Select2)</span>
+                            <div><small>Select2 TagBox</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-datepicker.html">
+                            <span>Datepicker</span>
+                            <div><small>JqueryUI DatePicker</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-custom-rating.html">
+                            <span>CustomRating</span>
+                            <div><small>Pure JS Rating</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-select2.html">
+                            <span>Select2</span>
+                            <div><small>Select2</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-icheck.html">
+                            <span>iCheck</span>
+                            <div><small>iCheck</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-barrating.html">
+                            <span>Barrating</span>
+                            <div><small>Antennaio Barrating</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-tagbox.html">
+                            <span>TagBox</span>
+                            <div><small>Devextreme TagBox</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-matrix-icheck.html">
+                            <span>ICheckMatrix</span>
+                            <div><small>Matrix with iCheck</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-sortablejs.html">
+                            <span>SortableJS</span>
+                            <div><small>SortableJS</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-image-picker.html">
+                            <span>ImagePicker</span>
+                            <div><small>Image Picker</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="custom-widget-nouislider.html">
+                            <span>noUiSlider</span>
+                            <div><small>JavaScript Range Slider</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('survey')">
+                    <span>Survey</span>
+                    <span id="imgsurvey" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplessurvey" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-oncomplete.html">
+                            <span>OnComplete handler</span>
+                            <div><small>Handle survey 'complete' event</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-cookie.html">
+                            <span>Use cookie</span>
+                            <div><small>Run survey one time in a browser</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-startwithnewline.html">
+                            <span>Questions in one line</span>
+                            <div><small>Show several questions in one line</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-customcss.html">
+                            <span>Custom css</span>
+                            <div><small>Use you own css classes</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-options.html">
+                            <span>Survey Options</span>
+                            <div><small>Use properties to set up your survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-data.html">
+                            <span>Work with data</span>
+                            <div><small>Get/set data from/to survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-displaymode.html">
+                            <span>Read-only/display mode</span>
+                            <div><small>View answers of other people</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-customnavigation.html">
+                            <span>Custom Navigation</span>
+                            <div><small>Use your own navigation</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-autonextpage.html">
+                            <span>Go next page automatically</span>
+                            <div><small>Go to the next page on answering questions automitically</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('triggers')">
+                    <span>Conditions and Triggers</span>
+                    <span id="imgtriggers" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplestriggers" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="condition-kids.html">
+                            <span>VisibleIf</span>
+                            <div><small>Create complex conditions to control question visibility</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-visible.html">
+                            <span>Visible Trigger</span>
+                            <div><small>Show/Hide question(s) on survey running</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-complete.html">
+                            <span>Complete Trigger</span>
+                            <div><small>Complete the survey from any page</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="trigger-setvalue.html">
+                            <span>SetValue Trigger</span>
+                            <div><small>On changing the question, change values of other questions</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('markdown')">
+                    <span>Markdown and Text Processing</span>
+                    <span id="imgmarkdown" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesmarkdown" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-processtext.html">
+                            <span>Pre-process title/html</span>
+                            <div><small>Use a simple syntax to customize the text</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-markdown-matrix.html">
+                            <span>Matrix columns markdown</span>
+                            <div><small>Render column title in several lines</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-markdown-radiogroup.html">
+                            <span>Radiogroup markdown</span>
+                            <div><small>Render images in title and question elements</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('localization')">
+                    <span>Localization</span>
+                    <span id="imglocalization" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="exampleslocalization" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="survey-localization.html">
+                            <span>Localization</span>
+                            <div><small>Localize your survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="survey-multilanguages.html">
+                            <span>Multi Languages</span>
+                            <div><small>Create a survey with multi languages support</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('validation')">
+                    <span>Validation</span>
+                    <span id="imgvalidation" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesvalidation" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="validators-standard.html">
+                            <span>Standard validators</span>
+                            <div><small>Example of using standard validators</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-server.html">
+                            <span>Validate on Server</span>
+                            <div><small>Validate answers of the current page on server</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-custom.html">
+                            <span>Create custom validators</span>
+                            <div><small>Example of creating and using a custom validator</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="validators-event.html">
+                            <span>Validate on event</span>
+                            <div><small>Example of using OnValidatateQuestion event</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('dxservice')">
+                    <span>Using dxService</span>
+                    <span id="imgdxservice" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesdxservice" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="service-load.html">
+                            <span>Load Survey</span>
+                            <div><small>Load survey json from the service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-send.html">
+                            <span>Save Survey Result</span>
+                            <div><small>Save survey result to the service</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-result.html">
+                            <span>Get Survey Result</span>
+                            <div><small>Get Survey Result after sending results</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="service-oneperuser.html">
+                            <span>Run survey one time</span>
+                            <div><small>Use your user id to run the survey one time and optionally store result on every page</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('real')">
+                    <span>Real Examples</span>
+                    <span id="imgreal" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="examplesreal" class="nav nav-second-level"style="display:none">
+                
+                    <li >
+                        <a href="real-productfeedback.html">
+                            <span>Product Feedback</span>
+                            <div><small>Three pages survey</small></div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="real-devexpresswinformsskins.html">
+                            <span>DevExpress Winforms Skins</span>
+                            <div><small>The real survey ran in DevExpress</small></div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+        </ul>        
+    </div>
+</nav>
+
+<script type="text/javascript">
+    function doExpand(categoryId) {
+        var ulCategory = document.getElementById("examples" + categoryId);
+        if(!ulCategory) return;
+        var display = ulCategory.style.display;
+        ulCategory.style.display = display == "none" ? "" : "none";
+        var imgCategory = document.getElementById("img" + categoryId);
+        if(!imgCategory) return;
+        imgCategory.className = display == "none" ? "glyphicon pull-right glyphicon-chevron-up" : "glyphicon pull-right glyphicon-chevron-down";
+    }
+</script>
+    <script>
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+    Survey.Survey.cssType = "bootstrap";
+    </script>
+    <div class="examplecontent wrapper wrapper-content">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="contenttitle">Medical Service Feedback</h3>
+            
+            
+                
+                    <ng-app></ng-app>
+                
+                <div id="survey_oncomplete" class="contentcontainer codecontainer" style="display:none">
+                    <div id="survey_result"></div>
+                    <input id="btnreRun" type="button" onclick="
+                                    document.getElementById('surveyContainer').style.display = '';
+                                    document.getElementById('survey_oncomplete').style.display = 'none';
+                                    reRunSurvey();"
+                           value="Re-run survey"></input>
+                </div>
+            
+
+            <div class="row source-code-container">
+                
+                    <ul class="nav nav-tabs" style="margin-top:10px;margin-bottom:10px">
+    
+    
+    <li role="presentation" class="active"><a>Angular2</a></li>
+    <li role="presentation"><a href="/examples/jquery/real-medical-service.html">jQuery</a></li>
+    <li role="presentation"><a href="/examples/knockout/real-medical-service.html">Knockoutjs</a></li>
+    <li role="presentation"><a href="/examples/react/real-medical-service.html">Reactjs</a></li>
+    <li role="presentation"><a href="/examples/vue/real-medical-service.html">Vue</a></li>
+    
+</ul>
+
+                
+                
+    
+
+    
+
+
+<script type="text/javascript">
+
+/*<![CDATA[*/
+
+
+
+
+var survey = new Survey.Model({
+    "pages": [{
+            "elements": [{
+                    "type": "radiogroup",
+                    "choices": [{
+                            "value": "yes",
+                            "text": {
+                                "default": "Yes",
+                                "de": "Ja"
+                            }
+                        },
+                        {
+                            "value": "no",
+                            "text": {
+                                "default": "No",
+                                "de": "Nein"
+                            }
+                        }
+                    ],
+                    "name": "Were you able to get an appointment when you felt it was needed?",
+                    "title": {
+                        "de": "Waren Sie in der Lage, einen Termin zu bekommen, wenn Sie fühlten, dass es nötig war?",
+                        "default": "Were you able to get an appointment when you felt it was needed?"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "choices": [{
+                            "value": "yes",
+                            "text": {
+                                "default": "Yes",
+                                "de": "Ja"
+                            }
+                        },
+                        {
+                            "value": "no",
+                            "text": {
+                                "default": "No",
+                                "de": "Nein"
+                            }
+                        }
+                    ],
+                    "name": "Were you seen within 15 minutes of your scheduled appointment time?",
+                    "title": {
+                        "de": "Waren Sie innerhalb von 15 Minuten nach Ihrer geplanten Terminzeit gesehen?",
+                        "default": "Were you seen within 15 minutes of your scheduled appointment time?"
+                    }
+                },
+                {
+                    "type": "radiogroup",
+                    "choices": [{
+                            "value": "yes",
+                            "text": {
+                                "default": "Yes",
+                                "de": "Ja"
+                            }
+                        },
+                        {
+                            "value": "no",
+                            "text": {
+                                "default": "No",
+                                "de": "Nein"
+                            }
+                        }
+                    ],
+                    "name": "Were you able to get tests and treatment scheduled in a reasonable timeframe?",
+                    "title": {
+                        "de": "Warst du in der Lage, Tests und Behandlungen in einem angemessenen Zeitrahmen zu planen?",
+                        "default": "Were you able to get tests and treatment scheduled in a reasonable timeframe?"
+                    }
+                }
+            ],
+            "name": "Scheduling / Service Delivery",
+            "title": {
+                "default": "Scheduling / Service Delivery",
+                "de": "Terminierung / Service Lieferung"
+            }
+        },
+        {
+            "elements": [{
+                    "type": "matrix",
+                    "columns": [{
+                            "value": "very poor",
+                            "text": {
+                                "default": "Very Poor",
+                                "de": "Sehr Arm"
+                            }
+                        },
+                        {
+                            "value": "poor",
+                            "text": {
+                                "default": "Poor",
+                                "de": "Arm"
+                            }
+                        },
+                        {
+                            "value": "fair",
+                            "text": {
+                                "default": "Fair",
+                                "de": "Messe"
+                            }
+                        },
+                        {
+                            "value": "good",
+                            "text": {
+                                "default": "Good",
+                                "de": "Gut"
+                            }
+                        },
+                        {
+                            "value": "very good",
+                            "text": {
+                                "default": "Very Good",
+                                "de": "Sehr gut"
+                            }
+                        }
+                    ],
+                    "name": "Care Provider",
+                    "rows": [{
+                            "value": "Friendliness/courtesy of the care provider",
+                            "text": {
+                                "default": "Friendliness/courtesy of the care provider",
+                                "de": "Freundlichkeit / Höflichkeit des Pflegeanbieters"
+                            }
+                        },
+                        {
+                            "value": "Explanations the care provider gave you about your problem or condition",
+                            "text": {
+                                "default": "Explanations the care provider gave you about your problem or condition",
+                                "de": "Erklärungen der Pflegeanbieter gab Ihnen über Ihr Problem oder Bedingung"
+                            }
+                        },
+                        {
+                            "value": "Concern the care provider showed for your questions or worries",
+                            "text": {
+                                "default": "Concern the care provider showed for your questions or worries",
+                                "de": "Sorge der Pflegeanbieter zeigte für Ihre Fragen oder Sorgen"
+                            }
+                        },
+                        {
+                            "value": "Care provider's efforts to include you in decisions about your treatment",
+                            "text": {
+                                "default": "Care provider's efforts to include you in decisions about your treatment",
+                                "de": "Pflegeanbieter Bemühungen um Sie in Entscheidungen über Ihre Behandlung"
+                            }
+                        },
+                        {
+                            "value": "Information the care provider gave you about medications (if any)",
+                            "text": {
+                                "default": "Information the care provider gave you about medications (if any)",
+                                "de": "Informationen der Pflegeanbieter gab Ihnen über Medikamente (falls vorhanden)"
+                            }
+                        },
+                        {
+                            "value": "Instructions the care provider gave you about follow-up care (if any)",
+                            "text": {
+                                "default": "Instructions the care provider gave you about follow-up care (if any)",
+                                "de": "Anleitung der Pflegeanbieter gab Ihnen über Nachsorge (falls vorhanden)"
+                            }
+                        },
+                        {
+                            "value": "Degree to which care provider talked with you using words you could understand",
+                            "text": {
+                                "default": "Degree to which care provider talked with you using words you could understand",
+                                "de": "Grad, zu dem der Pfleger mit Ihnen mit Worten gesprochen hat, die Sie verstehen konnten"
+                            }
+                        },
+                        {
+                            "value": "Amount of time the care provider spent with you",
+                            "text": {
+                                "default": "Amount of time the care provider spent with you",
+                                "de": "Anzahl der Zeit, die der Pfleger mit Ihnen ausgegeben hat"
+                            }
+                        },
+                        {
+                            "value": "Your confidence in this care provider",
+                            "text": {
+                                "default": "Your confidence in this care provider",
+                                "de": "Ihr Vertrauen in diesen Pflegeanbieter"
+                            }
+                        },
+                        {
+                            "value": "Likelihood of your recommending this care provider to others",
+                            "text": {
+                                "default": "Likelihood of your recommending this care provider to others",
+                                "de": "Wahrscheinlichkeit, dass Sie diesen Pflegeanbieter anderen empfehlen"
+                            }
+                        }
+                    ],
+                    "title": {
+                        "default": "CARE PROVIDER - During your visit, your care was provided primarily by a doctor, physician assistant (PA), nurse practitioner (NP), or midwife.  Please answer the following questions with that health care provider in mind.",
+                        "de": "PFLEGEANBIRTER - Während Ihres Besuchs wurde Ihre Betreuung in erster Linie von einem Arzt, Arzt Assistent (AA), Krankenschwester Praktiker (KP) oder Hebamme zur Verfügung gestellt. Bitte beantworten Sie die folgenden Fragen bei diesem Arzt."
+                    }
+                },
+                {
+                    "type": "comment",
+                    "name": "If you have any additional feedback or comments, please provide that here",
+                    "title": {
+                        "de": "Wenn Sie irgendwelche zusätzlichen Rückmeldungen oder Anmerkungen haben, stellen Sie bitte dieses hier zur Verfügung",
+                        "default": "If you have any additional feedback or comments, please provide that here"
+                    }
+                }
+            ],
+            "name": "Quality of Service",
+            "title": {
+                "default": "Quality of Service",
+                "de": "Servicequalität"
+            }
+        }
+    ]
+});
+
+function onAngularComponentInit() {
+    Survey.SurveyNG.render("surveyElement", {model:survey});
+}
+var HelloApp =
+    ng.core
+        .Component({
+            selector: 'ng-app',
+            template: '<div id="surveyContainer" class="survey-container contentcontainer codecontainer">' +
+            '<div id="surveyElement"></div></div>'
+        })
+        .Class({
+            constructor: function() {
+            },
+            ngOnInit: function() {
+                onAngularComponentInit();
+            }
+        });
+document.addEventListener('DOMContentLoaded', function() {
+    ng.platformBrowserDynamic.bootstrap(HelloApp);
+});
+
+
+
+window.survey = survey;
+survey.onComplete.add(function (s) { 
+    var result = "\nThe results are:\n" + JSON.stringify(survey.data);
+    document.getElementById('survey_result').innerHTML = result; 
+    document.getElementById('survey_oncomplete').style.display = '';
+});
+
+
+/*]]>*/
+</script>
+
+
+
+
+
+
+<div>Source code: Survey setup</div>
+<pre><code class="language-javascript">Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+Survey.Survey.cssType = "bootstrap";
+var survey = new Survey.Model({
+    &quot;pages&quot;: [{
+            &quot;elements&quot;: [{
+                    &quot;type&quot;: &quot;radiogroup&quot;,
+                    &quot;choices&quot;: [{
+                            &quot;value&quot;: &quot;yes&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Yes&quot;,
+                                &quot;de&quot;: &quot;Ja&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;no&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;No&quot;,
+                                &quot;de&quot;: &quot;Nein&quot;
+                            }
+                        }
+                    ],
+                    &quot;name&quot;: &quot;Were you able to get an appointment when you felt it was needed?&quot;,
+                    &quot;title&quot;: {
+                        &quot;de&quot;: &quot;Waren Sie in der Lage, einen Termin zu bekommen, wenn Sie fühlten, dass es nötig war?&quot;,
+                        &quot;default&quot;: &quot;Were you able to get an appointment when you felt it was needed?&quot;
+                    }
+                },
+                {
+                    &quot;type&quot;: &quot;radiogroup&quot;,
+                    &quot;choices&quot;: [{
+                            &quot;value&quot;: &quot;yes&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Yes&quot;,
+                                &quot;de&quot;: &quot;Ja&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;no&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;No&quot;,
+                                &quot;de&quot;: &quot;Nein&quot;
+                            }
+                        }
+                    ],
+                    &quot;name&quot;: &quot;Were you seen within 15 minutes of your scheduled appointment time?&quot;,
+                    &quot;title&quot;: {
+                        &quot;de&quot;: &quot;Waren Sie innerhalb von 15 Minuten nach Ihrer geplanten Terminzeit gesehen?&quot;,
+                        &quot;default&quot;: &quot;Were you seen within 15 minutes of your scheduled appointment time?&quot;
+                    }
+                },
+                {
+                    &quot;type&quot;: &quot;radiogroup&quot;,
+                    &quot;choices&quot;: [{
+                            &quot;value&quot;: &quot;yes&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Yes&quot;,
+                                &quot;de&quot;: &quot;Ja&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;no&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;No&quot;,
+                                &quot;de&quot;: &quot;Nein&quot;
+                            }
+                        }
+                    ],
+                    &quot;name&quot;: &quot;Were you able to get tests and treatment scheduled in a reasonable timeframe?&quot;,
+                    &quot;title&quot;: {
+                        &quot;de&quot;: &quot;Warst du in der Lage, Tests und Behandlungen in einem angemessenen Zeitrahmen zu planen?&quot;,
+                        &quot;default&quot;: &quot;Were you able to get tests and treatment scheduled in a reasonable timeframe?&quot;
+                    }
+                }
+            ],
+            &quot;name&quot;: &quot;Scheduling / Service Delivery&quot;,
+            &quot;title&quot;: {
+                &quot;default&quot;: &quot;Scheduling / Service Delivery&quot;,
+                &quot;de&quot;: &quot;Terminierung / Service Lieferung&quot;
+            }
+        },
+        {
+            &quot;elements&quot;: [{
+                    &quot;type&quot;: &quot;matrix&quot;,
+                    &quot;columns&quot;: [{
+                            &quot;value&quot;: &quot;very poor&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Very Poor&quot;,
+                                &quot;de&quot;: &quot;Sehr Arm&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;poor&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Poor&quot;,
+                                &quot;de&quot;: &quot;Arm&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;fair&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Fair&quot;,
+                                &quot;de&quot;: &quot;Messe&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;good&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Good&quot;,
+                                &quot;de&quot;: &quot;Gut&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;very good&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Very Good&quot;,
+                                &quot;de&quot;: &quot;Sehr gut&quot;
+                            }
+                        }
+                    ],
+                    &quot;name&quot;: &quot;Care Provider&quot;,
+                    &quot;rows&quot;: [{
+                            &quot;value&quot;: &quot;Friendliness/courtesy of the care provider&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Friendliness/courtesy of the care provider&quot;,
+                                &quot;de&quot;: &quot;Freundlichkeit / Höflichkeit des Pflegeanbieters&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Explanations the care provider gave you about your problem or condition&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Explanations the care provider gave you about your problem or condition&quot;,
+                                &quot;de&quot;: &quot;Erklärungen der Pflegeanbieter gab Ihnen über Ihr Problem oder Bedingung&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Concern the care provider showed for your questions or worries&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Concern the care provider showed for your questions or worries&quot;,
+                                &quot;de&quot;: &quot;Sorge der Pflegeanbieter zeigte für Ihre Fragen oder Sorgen&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Care provider&#39;s efforts to include you in decisions about your treatment&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Care provider&#39;s efforts to include you in decisions about your treatment&quot;,
+                                &quot;de&quot;: &quot;Pflegeanbieter Bemühungen um Sie in Entscheidungen über Ihre Behandlung&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Information the care provider gave you about medications (if any)&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Information the care provider gave you about medications (if any)&quot;,
+                                &quot;de&quot;: &quot;Informationen der Pflegeanbieter gab Ihnen über Medikamente (falls vorhanden)&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Instructions the care provider gave you about follow-up care (if any)&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Instructions the care provider gave you about follow-up care (if any)&quot;,
+                                &quot;de&quot;: &quot;Anleitung der Pflegeanbieter gab Ihnen über Nachsorge (falls vorhanden)&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Degree to which care provider talked with you using words you could understand&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Degree to which care provider talked with you using words you could understand&quot;,
+                                &quot;de&quot;: &quot;Grad, zu dem der Pfleger mit Ihnen mit Worten gesprochen hat, die Sie verstehen konnten&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Amount of time the care provider spent with you&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Amount of time the care provider spent with you&quot;,
+                                &quot;de&quot;: &quot;Anzahl der Zeit, die der Pfleger mit Ihnen ausgegeben hat&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Your confidence in this care provider&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Your confidence in this care provider&quot;,
+                                &quot;de&quot;: &quot;Ihr Vertrauen in diesen Pflegeanbieter&quot;
+                            }
+                        },
+                        {
+                            &quot;value&quot;: &quot;Likelihood of your recommending this care provider to others&quot;,
+                            &quot;text&quot;: {
+                                &quot;default&quot;: &quot;Likelihood of your recommending this care provider to others&quot;,
+                                &quot;de&quot;: &quot;Wahrscheinlichkeit, dass Sie diesen Pflegeanbieter anderen empfehlen&quot;
+                            }
+                        }
+                    ],
+                    &quot;title&quot;: {
+                        &quot;default&quot;: &quot;CARE PROVIDER - During your visit, your care was provided primarily by a doctor, physician assistant (PA), nurse practitioner (NP), or midwife.  Please answer the following questions with that health care provider in mind.&quot;,
+                        &quot;de&quot;: &quot;PFLEGEANBIRTER - Während Ihres Besuchs wurde Ihre Betreuung in erster Linie von einem Arzt, Arzt Assistent (AA), Krankenschwester Praktiker (KP) oder Hebamme zur Verfügung gestellt. Bitte beantworten Sie die folgenden Fragen bei diesem Arzt.&quot;
+                    }
+                },
+                {
+                    &quot;type&quot;: &quot;comment&quot;,
+                    &quot;name&quot;: &quot;If you have any additional feedback or comments, please provide that here&quot;,
+                    &quot;title&quot;: {
+                        &quot;de&quot;: &quot;Wenn Sie irgendwelche zusätzlichen Rückmeldungen oder Anmerkungen haben, stellen Sie bitte dieses hier zur Verfügung&quot;,
+                        &quot;default&quot;: &quot;If you have any additional feedback or comments, please provide that here&quot;
+                    }
+                }
+            ],
+            &quot;name&quot;: &quot;Quality of Service&quot;,
+            &quot;title&quot;: {
+                &quot;default&quot;: &quot;Quality of Service&quot;,
+                &quot;de&quot;: &quot;Servicequalität&quot;
+            }
+        }
+    ]
+});
+
+function onAngularComponentInit() {
+    Survey.SurveyNG.render(&quot;surveyElement&quot;, {model:survey});
+}
+var HelloApp =
+    ng.core
+        .Component({
+            selector: &#39;ng-app&#39;,
+            template: &#39;&lt;div id=&quot;surveyContainer&quot; class=&quot;survey-container contentcontainer codecontainer&quot;&gt;&#39; +
+            &#39;&lt;div id=&quot;surveyElement&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#39;
+        })
+        .Class({
+            constructor: function() {
+            },
+            ngOnInit: function() {
+                onAngularComponentInit();
+            }
+        });
+document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+    ng.platformBrowserDynamic.bootstrap(HelloApp);
+});
+
+</code></pre>
+    
+
+            </div>
+        </div>
+        
+        <div class="col-md-4 exampleoptions">
+            <div class="propertyitem">
+    <p>
+        <b>Locale: </b> (default is <empty>)
+        <select id="selLocales" style="width:100%" onChange="changeLocale();">
+            <option value="">Empty(default)</option>
+            <option value="de" selected="selected">de</option>
+        </select>
+        <pre><code class="language-javascript">survey.locale = yourvalue;
+survey.render();</code></pre>
+    </p>
+</div>
+<script>
+function changeLocale() {
+    if(!!window.survey) {
+        survey.locale = document.getElementById("selLocales").value;
+        survey.render();
+    }
+}
+changeLocale();
+</script>
+        </div>
+        
+    </div>
+</div>
+
+
+    <script>
+    function reRunSurvey() {
+        
+        survey.clear();
+        
+        survey.render('survey');
+    }
+    
+        
+    
+    </script>
+</div>
+
+        </div>
+        
+        <script type="text/javascript">               
+            // Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-74958675-1']);
+            _gaq.push(['_trackPageview']);	
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();             
+        </script>        
+    </body>
+</html>

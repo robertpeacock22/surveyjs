@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>survey.js : Visual Editor for JavaScript JSON based Survey Library</title>
+        <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"/>
+        <link href="/css/style.css" type="text/css" rel="stylesheet" /> 
+        <link href="/css/main.css" type="text/css" rel="stylesheet" />
+        <link href="/css/custom-checkbox.css" type="text/css" rel="stylesheet" />
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>        
+        
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        
+        <script src="/js/knockout.js"></script>
+        <script src="https://surveyjs.azureedge.net/0.12.11/survey.ko.js"></script>
+        
+        <link href="/css/prism.css" type="text/css" rel="stylesheet" />
+        <script src="/js/prism.js"></script>
+        
+    </head>
+    <body class="white-bg">
+        
+<nav class="navbar navbar-default survey-gray survey-navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/index.html">Survey.JS</a>
+            <a class="version-link" role="button" href="https://github.com/surveyjs/surveyjs/releases" target="_blank">
+                the latest version 0.12.11
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class=''><a rel="home" href="/index.html" >Home</a></li>
+            <li ><a rel="examples" href="/examples/jquery/">Examples</a></li>
+            <li class='active'><a rel="builder" href="/builder/">Survey Editor</a></li>
+            <li><a href="http://surveyjs.io" target="_blank">SurveyJS Project</a></li>
+            <li><a href="http://github.com/surveyjs/surveyjs" target="_blank">Source</a></li>
+            <li><a href="https://github.com/surveyjs/surveyjs/issues" target="_blank">Issues</a></li>
+        </ul>
+    </div>
+</nav>
+        <div class="maincontent">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript" charset="utf-8"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript" charset="utf-8"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript" charset="utf-8"></script> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> 
+<link href="https://surveyjs.azureedge.net/0.12.11/surveyeditor.css" type="text/css" rel="stylesheet" />
+<link href="/css/custom-surveyeditor.css" type="text/css" rel="stylesheet" />
+<script src="https://surveyjs.azureedge.net/0.12.11/surveyeditor.js"></script>
+
+<div id="manage" data-bind="template: 'surveys-manage'" style="position: relative;"></div>
+<style>
+    #manage .svd-manage .svd-manage-buttons { top: 0; }
+</style>
+<div id="editor" class="survey-editor"></div>
+<script>
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        url = url.toLowerCase(); // This is just to avoid case sensitiveness  
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    var editor = new SurveyEditor.SurveyEditor("editor", {showEmbededSurveyTab: true, showOptions: true, showState: true, generateValidJSON : false});
+    var manager = new SurveyEditor.SurveysManager("https://dxsurvey.com", "a797f29b53f8455e8b3ef317f8904dac", editor);
+    ko.applyBindings(manager, document.getElementById("manage"));
+    editor.toolbarItems.push(manager.toolbarItem);
+    var surveyId = getParameterByName("surveyid");
+    if(surveyId) {
+        editor.loadSurvey(surveyId);
+    }
+</script>
+
+        </div>
+        
+        <script type="text/javascript">               
+            // Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-74958675-1']);
+            _gaq.push(['_trackPageview']);	
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();             
+        </script>        
+    </body>
+</html>
