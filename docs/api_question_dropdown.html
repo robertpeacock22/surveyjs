@@ -2,18 +2,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>survey.js : Survey Model</title>
+        <title>survey.js : Documentation Index</title>
         <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"/>
         <link href="/css/style.css" type="text/css" rel="stylesheet" /> 
         <link href="/css/main.css" type="text/css" rel="stylesheet" />
         <link href="/css/custom-checkbox.css" type="text/css" rel="stylesheet" />
         
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>        
         
         
-        
-        
-        <script src="https://surveyjs.azureedge.net/0.12.11/survey.jquery.js"></script>
         
         <link href="/css/prism.css" type="text/css" rel="stylesheet" />
         <script src="/js/prism.js"></script>
@@ -50,17 +46,17 @@
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
         
-            <li class="active">
-                <a href="#" onclick="doExpand('survey')">
-                    <span>Survey</span>
-                    <span id="img-survey" class="glyphicon pull-right glyphicon-chevron-up" aria-hidden="true"></span>
+            <li >
+                <a href="#" onclick="doExpand('started')">
+                    <span>Gettting started</span>
+                    <span id="img-started" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
                 </a>
-                <ul id="docs-survey" class="nav nav-second-level">
+                <ul id="docs-started" class="nav nav-second-level"style="display:none">
                 
                 
-                    <li class="active">
-                        <a href="survey-model.html">
-                            <div>Survey Model</div>
+                    <li >
+                        <a href="gettingstarted.html">
+                            <div>Getting started</div>
                         </a>
                     </li>
                     
@@ -68,39 +64,22 @@
             </li>
         
             <li >
-                <a href="#" onclick="doExpand('page')">
-                    <span>Survey Page</span>
-                    <span id="img-page" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                <a href="#" onclick="doExpand('api')">
+                    <span>Survey Objects API</span>
+                    <span id="img-api" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
                 </a>
-                <ul id="docs-page" class="nav nav-second-level"style="display:none">
+                <ul id="docs-api" class="nav nav-second-level"style="display:none">
                 
                 
                     <li >
-                        <a href="survey-page.html">
-                            <div>Page Model</div>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </li>
-        
-            <li >
-                <a href="#" onclick="doExpand('question')">
-                    <span>Survey Question</span>
-                    <span id="img-question" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
-                </a>
-                <ul id="docs-question" class="nav nav-second-level"style="display:none">
-                
-                
-                    <li >
-                        <a href="question-text.html">
-                            <div>Text question model</div>
+                        <a href="api_survey.html">
+                            <div>Survey</div>
                         </a>
                     </li>
                 
                     <li >
-                        <a href="question-dropdown.html">
-                            <div>Dropdown question model</div>
+                        <a href="api_question_dropdown.html">
+                            <div>Question Dropdown</div>
                         </a>
                     </li>
                     
@@ -127,23 +106,29 @@
         <div class="doc-content-wrapper">
             <div class="doc-container">
                 <div class="doc-content">
-                    <ul class="nav nav-tabs" style="margin-top:10px;margin-bottom:10px">
-    
-    
-    <li role="presentation"><a href="/docs/angular/survey-model.html">Angular2</a></li>
-    <li role="presentation" class="active"><a>jQuery</a></li>
-    <li role="presentation"><a href="/docs/knockout/survey-model.html">Knockoutjs</a></li>
-    <li role="presentation"><a href="/docs/react/survey-model.html">Reactjs</a></li>
-    <li role="presentation"><a href="/docs/vue/survey-model.html">Vue</a></li>
-    
-</ul>
+                    dklfjsdkfjs
+<div id="objectProperties">
+      <div data-bind="foreach: items">
+          <div><a data-bind="attr: {href: href}"><span data-bind="text: name"></a></span></div>
+    </div>
+</div>
 
-                    
-                    
-                        
-                        <p>To see survey.js documentation, please select item from the menu on the left.</p>
+<script src="/js/knockout.js"></script>
+<script>
+    var classes = [
+    { name: "Base", parent: ""},{ name: "Survey", parent: "Base"},{ name: "QuestionBase", parent: "Base"},{ name: "Question", parent: "QuestionBase"},{ name: "QuestionSelectBase", parent: "Question"},{ name: "QuestionCheckbox", parent: "QuestionSelectBase"},{ name: "QuestionDropdown", parent: "QuestionSelectBase"},
+    {name: "", parent: ""}];
+    var pmes = [
+    { name: "title", class: "Question", type: "p", "href": "../docs/Question/title.html"},{ name: "choices", class: "QuestionSelectBase", type: "p", "href": "../docs/QuestionSelectBase/choices.html"},
+    {name: "", class: ""}];
+    
+    var Model = function(className) {
+        this.items = ko.observableArray(pmes);
+};
+ 
+ko.applyBindings(new Model("QuestionDropdown"), document.getElementById("objectProperties"));
+ </script>
 
-                    
                 </div>
             </div>
         </div>

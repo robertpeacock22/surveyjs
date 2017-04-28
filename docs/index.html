@@ -1,10 +1,153 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <meta charset="utf-8">
-  <title>Redirecting…</title>
-  <link rel="canonical" href="/docs/jquery/">
-  <meta http-equiv="refresh" content="0; url=/docs/jquery/">
-  <h1>Redirecting…</h1>
-  <a href="/docs/jquery/">Click here if you are not redirected.</a>
-  <script>location="/docs/jquery/"</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>survey.js : Documentation Index</title>
+        <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"/>
+        <link href="/css/style.css" type="text/css" rel="stylesheet" /> 
+        <link href="/css/main.css" type="text/css" rel="stylesheet" />
+        <link href="/css/custom-checkbox.css" type="text/css" rel="stylesheet" />
+        
+        
+        
+        
+        <link href="/css/prism.css" type="text/css" rel="stylesheet" />
+        <script src="/js/prism.js"></script>
+        
+    </head>
+    <body class="white-bg">
+        
+<nav class="navbar navbar-default survey-gray survey-navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/index.html">Survey.JS</a>
+            <a class="version-link" role="button" href="https://github.com/surveyjs/surveyjs/releases" target="_blank">
+                the latest version 0.12.11
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class='active'><a rel="home" href="/index.html" >Home</a></li>
+            <li ><a rel="examples" href="/examples/jquery/">Examples</a></li>
+            <li ><a rel="builder" href="/builder/">Survey Editor</a></li>
+            <li><a href="http://surveyjs.io" target="_blank">SurveyJS Project</a></li>
+            <li><a href="http://github.com/surveyjs/surveyjs" target="_blank">Source</a></li>
+            <li><a href="https://github.com/surveyjs/surveyjs/issues" target="_blank">Issues</a></li>
+        </ul>
+    </div>
+</nav>
+        <div class="maincontent">
+        <div class="surveyjs-doc-page-wrapper">
+    <div class="doc-page-container">
+
+        <nav class="navbar-default navbar-static-side menu-sidebar" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+        
+            <li >
+                <a href="#" onclick="doExpand('started')">
+                    <span>Gettting started</span>
+                    <span id="img-started" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="docs-started" class="nav nav-second-level"style="display:none">
+                
+                
+                    <li >
+                        <a href="gettingstarted.html">
+                            <div>Getting started</div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+            <li >
+                <a href="#" onclick="doExpand('api')">
+                    <span>Survey Objects API</span>
+                    <span id="img-api" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+                <ul id="docs-api" class="nav nav-second-level"style="display:none">
+                
+                
+                    <li >
+                        <a href="api_survey.html">
+                            <div>Survey</div>
+                        </a>
+                    </li>
+                
+                    <li >
+                        <a href="api_question_dropdown.html">
+                            <div>Question Dropdown</div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+        
+        </ul>        
+    </div>
+</nav>
+
+<script type="text/javascript">
+    function doExpand(categoryName) {
+        var ulCategory = document.getElementById("docs-" + categoryName);
+        if(!ulCategory) return;
+        var display = ulCategory.style.display;
+        ulCategory.style.display = display == "none" ? "" : "none";
+        var imgCategory = document.getElementById("img-" + categoryName);
+        if(!imgCategory) return;
+        imgCategory.className = display == "none" ? "glyphicon pull-right glyphicon-chevron-up" : "glyphicon pull-right glyphicon-chevron-down";
+    }
+</script>
+
+
+        <div class="doc-content-wrapper">
+            <div class="doc-container">
+                <div class="doc-content">
+                    # Meet SurveyJS
+
+### Feature rich and open source survey JavaScript library under MIT license
+
+There are enormous solutions for creating surveys on the web. Despite this, SurveyJS team are strongly believe that SurveyJS is the right way to go. Please take several minutes of your time to find out why SurveyJS is the right choice.
+
+## Integrate a survey into your web page
+{: .doc-section-title}
+SurveyJS library has versions for several popular JavaScript frameworks: angular, jQuery, knockout, react and vue. Please follow these simple steps to integrate a survey into your web site or web page.
+{: .doc-section-content}
+
+<center>
+<iframe width="100%" height="300px" src="//jsfiddle.net/surveyjs/khsf8rdg/embedded/" allowfullscreen="true" frameborder="0"></iframe>
+</center>
+{: .doc-fiddle}
+<center>
+“product feedback” example (knockout version)
+</center>
+{: .doc-fiddle-title}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="panel-footer">
+    Copyright ©2015-2017 <a href="http://surveyjs.io" target="_blank">SurveyJS Project</a>
+</footer>
+
+</div>
+        </div>
+        
+        <script type="text/javascript">               
+            // Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-74958675-1']);
+            _gaq.push(['_trackPageview']);	
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();             
+        </script>        
+    </body>
 </html>

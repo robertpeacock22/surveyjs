@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>survey.js : Page Model</title>
+        <title>survey.js : Question.title</title>
         <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"/>
         <link href="/css/style.css" type="text/css" rel="stylesheet" /> 
         <link href="/css/main.css" type="text/css" rel="stylesheet" />
@@ -10,9 +10,6 @@
         
         
         
-        
-        <script src="/js/knockout.js"></script>
-        <script src="https://surveyjs.azureedge.net/0.12.11/survey.ko.js"></script>
         
         <link href="/css/prism.css" type="text/css" rel="stylesheet" />
         <script src="/js/prism.js"></script>
@@ -50,33 +47,16 @@
         <ul class="nav metismenu" id="side-menu">
         
             <li >
-                <a href="#" onclick="doExpand('survey')">
-                    <span>Survey</span>
-                    <span id="img-survey" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                <a href="#" onclick="doExpand('started')">
+                    <span>Gettting started</span>
+                    <span id="img-started" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
                 </a>
-                <ul id="docs-survey" class="nav nav-second-level"style="display:none">
+                <ul id="docs-started" class="nav nav-second-level"style="display:none">
                 
                 
                     <li >
-                        <a href="survey-model.html">
-                            <div>Survey Model</div>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </li>
-        
-            <li class="active">
-                <a href="#" onclick="doExpand('page')">
-                    <span>Survey Page</span>
-                    <span id="img-page" class="glyphicon pull-right glyphicon-chevron-up" aria-hidden="true"></span>
-                </a>
-                <ul id="docs-page" class="nav nav-second-level">
-                
-                
-                    <li class="active">
-                        <a href="survey-page.html">
-                            <div>Page Model</div>
+                        <a href="gettingstarted.html">
+                            <div>Getting started</div>
                         </a>
                     </li>
                     
@@ -84,22 +64,22 @@
             </li>
         
             <li >
-                <a href="#" onclick="doExpand('question')">
-                    <span>Survey Question</span>
-                    <span id="img-question" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
+                <a href="#" onclick="doExpand('api')">
+                    <span>Survey Objects API</span>
+                    <span id="img-api" class="glyphicon pull-right glyphicon-chevron-down" aria-hidden="true"></span>
                 </a>
-                <ul id="docs-question" class="nav nav-second-level"style="display:none">
+                <ul id="docs-api" class="nav nav-second-level"style="display:none">
                 
                 
                     <li >
-                        <a href="question-text.html">
-                            <div>Text question model</div>
+                        <a href="api_survey.html">
+                            <div>Survey</div>
                         </a>
                     </li>
                 
                     <li >
-                        <a href="question-dropdown.html">
-                            <div>Dropdown question model</div>
+                        <a href="api_question_dropdown.html">
+                            <div>Question Dropdown</div>
                         </a>
                     </li>
                     
@@ -126,23 +106,25 @@
         <div class="doc-content-wrapper">
             <div class="doc-container">
                 <div class="doc-content">
-                    <ul class="nav nav-tabs" style="margin-top:10px;margin-bottom:10px">
-    
-    
-    <li role="presentation"><a href="/docs/angular/survey-page.html">Angular2</a></li>
-    <li role="presentation"><a href="/docs/jquery/survey-page.html">jQuery</a></li>
-    <li role="presentation" class="active"><a>Knockoutjs</a></li>
-    <li role="presentation"><a href="/docs/react/survey-page.html">Reactjs</a></li>
-    <li role="presentation"><a href="/docs/vue/survey-page.html">Vue</a></li>
-    
-</ul>
+                    <div id="pmeInfo">
+    <span data-bind="text: name"></span>
+</div>
 
-                    
-                    
-                        
-                        <p>To see survey.js documentation, please select item from the menu on the left.</p>
+<script src="/js/knockout.js"></script>
+<script>
+    var Model = function(){
+    
+        
+            this.name = "Question.title";
+        
+    
+        
+    
+    };
+    
 
-                    
+ko.applyBindings(new Model(), document.getElementById("pmeInfo"));
+ </script>
                 </div>
             </div>
         </div>
