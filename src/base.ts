@@ -24,6 +24,7 @@ export interface ISurvey extends ISurveyData {
     requiredText: string;
     questionStartIndex: string;
     getQuestionTitleTemplate(): string;
+    getQuestionBodyTemplate(): string;
     storeOthersAsComment: boolean;
     uploadFile(name: string, file: File, storeDataAsText: boolean, uploadingCallback: (status: string) => any): boolean;
     afterRenderQuestion(question: IQuestion, htmlElement);
@@ -50,6 +51,7 @@ export interface IElement  extends IConditionRunner{
 
 export interface IQuestion extends IElement {
     hasTitle: boolean;
+    hasBody: boolean;
     setVisibleIndex(value: number);
     onSurveyValueChanged(newValue: any);
     supportGoNextPageAutomatic(): boolean;

@@ -78,6 +78,10 @@ export class Survey extends React.Component<any, any> implements ISurveyCreator 
         var title = SurveyElementBase.renderLocString(this.survey.locTitle);
         return <div className={this.css.header}><h3>{title}</h3></div>;
     }
+    protected renderBody(): JSX.Element {
+        var body = SurveyElementBase.renderLocString(this.survey.locBody);
+        return <div className={this.css.header}><h3>{body}</h3></div>;
+    }
     protected renderPage(): JSX.Element {
         return <SurveyPage survey={this.survey} page={this.survey.currentPage} css={this.css} creator={this} />;
     }

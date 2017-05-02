@@ -9,6 +9,7 @@ export interface ISurveyCreator {
     createQuestionElement(question: QuestionBase): JSX.Element;
     renderError(key: string, errorText: string): JSX.Element;
     questionTitleLocation(): string;
+    questionBodyLocation(): string;
 }
 
 export class SurveyQuestion extends React.Component<any, any> {
@@ -31,7 +32,7 @@ export class SurveyQuestion extends React.Component<any, any> {
         this.questionBase = question;
         this.question = question instanceof Question ? question : null;
         var value = this.question ? this.question.value : null;
-        this.state = { 
+        this.state = {
             visible: this.questionBase.visible, value: value, error: 0, renderWidth: 0,
             visibleIndexValue: -1, isReadOnly : this.questionBase.isReadOnly
         };
@@ -72,6 +73,9 @@ export class SurveyQuestion extends React.Component<any, any> {
         var title = this.questionBase.hasTitle ? this.renderTitle() : null;
         var titleTop = this.creator.questionTitleLocation() == "top" ? title : null;
         var titleBottom = this.creator.questionTitleLocation() == "bottom" ? title : null;
+        var body = this.questionBase.hasBody ? this.renderBody() : null;
+        var bodyTop = this.creator.questionBodyLocation() == "top" ? body : null;
+        var bodyBottom = this.creator.questionBodyLocation() == "bottom" ? body : null;
         var comment = (this.question && this.question.hasComment) ? this.renderComment() : null;
         var errors = this.renderErrors();
         var marginLeft = (this.questionBase.indent > 0) ? this.questionBase.indent * this.css.question.indent + "px" : null;
